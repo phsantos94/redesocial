@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Minha Rede Social</title>
+  <style>
+    body { font-family: Arial; max-width: 600px; margin: auto; padding: 20px; }
+    .post { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+    textarea { width: 100%; height: 80px; }
+  </style>
+</head>
+<body>
+
+  <h1>Feed</h1>
+
+  <div>
+    <input type="text" id="autor" placeholder="Seu nome"><br><br>
+    <textarea id="mensagem" placeholder="O que está pensando?"></textarea><br>
+    <input type="file" id="imagem"><br>
+    <input type="file" id="video"><br><br>
+    <button onclick="enviarPost()">Postar</button>
+  </div>
+
+  <hr>
+  <div id="feed"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
