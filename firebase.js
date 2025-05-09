@@ -5,7 +5,7 @@ const admin = require("firebase-admin");
 function decodeFirebaseCredentials() {
   try {
     // Verifica se a variável existe
-    if (!process.env.FIREBASE_BASE64) {
+    if (!process.env.FIREBASE_CONFIG_BASE64) {
       throw new Error('Variável FIREBASE_CONFIG_BASE64 não encontrada no .env');
     }
 
