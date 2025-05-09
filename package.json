@@ -1,0 +1,23 @@
+{
+  "name": "meu-projeto-posts",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "predeploy": "npm install --omit=dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@ibm-cloud/cloudant": "^0.12.3",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "firebase-admin": "^13.3.0",
+    "ibm-cloud-sdk-core": "^5.3.2",
+    "nano": "^10.1.4",
+    "pg": "^8.15.6"
+  }
+}
