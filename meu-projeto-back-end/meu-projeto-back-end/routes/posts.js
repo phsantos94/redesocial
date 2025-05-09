@@ -1,9 +1,8 @@
-// routes/posts.js
 const { bucket } = require('../firebase');
 const db = require('../db');
 const { v4: uuidv4 } = require('uuid');
 
-// POST /posts
+// Rota: POST /posts
 async function handleNewPost(req, res) {
   let data = Buffer.alloc(0);
   req.on('data', chunk => {
@@ -19,7 +18,7 @@ async function handleNewPost(req, res) {
 
       if (imagemBase64) {
         const buffer = Buffer.from(imagemBase64, 'base64');
-        const file = bucket.file(`posts/${id}.jpg`);
+        const file = bucket.file(`posts/${id}.jpg`); 
         await file.save(buffer, { contentType: 'image/jpeg' });
         await file.makePublic();
         imagemUrl = file.publicUrl();
@@ -56,7 +55,7 @@ async function handleNewPost(req, res) {
   });
 }
 
-// GET /posts
+// Rota: GET /posts
 async function handleGetPosts(req, res) {
   try {
     const result = await db.list({ include_docs: true });

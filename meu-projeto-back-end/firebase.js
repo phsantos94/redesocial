@@ -1,22 +1,13 @@
 const admin = require("firebase-admin");
 
+const base64 = process.env.FIREBASE_CONFIG_BASE64;
+const json = Buffer.from(base64, 'base64').toString('utf-8');
+const serviceAccount = JSON.parse(json);
+
 admin.initializeApp({
-  credential: admin.credential.cert({
-    type: process.env.FIREBASE_TYPE,
-    project_id: process.env.FIREBASE_PROJECT_ID,
-    private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID,
-    private_key: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-    client_email: process.env.FIREBASE_CLIENT_EMAIL,
-    client_id: process.env.FIREBASE_CLIENT_ID,
-    auth_uri: process.env.FIREBASE_AUTH_URI,
-    token_uri: process.env.FIREBASE_TOKEN_URI,
-    auth_provider_x509_cert_url: process.env.FIREBASE_AUTH_PROVIDER_X509_CERT_URL,
-    client_x509_cert_url: process.env.FIREBASE_CLIENT_X509_CERT_URL,
-    universe_domain: process.env.FIREBASE_UNIVERSE_DOMAIN
-  }),
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET
+  credential: admin.credential.cert(serviceAccount),
+  storageBucket: "meu-projeto-b0357.appspot.com" // troque pelo seu bucket real
 });
 
 const bucket = admin.storage().bucket();
-
 module.exports = { bucket };
